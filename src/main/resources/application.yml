@@ -1,7 +1,19 @@
 micronaut:
   application:
     name: apiGateway
-netty:
-  default:
-    allocator:
-      max-order: 3
+  server:
+    port: 9090
+  config-client:
+    enabled: true
+
+consul:
+  client:
+    defaultZone: "localhost:8500"
+    registration:
+      enabled: true
+
+gateway:
+  services:
+    - veiculos-service
+    - loja-service
+    - relatorio-service
